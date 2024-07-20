@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { BASE_URL, TIMEOUT } from './config'
+
 class VanRquest {
   constructor(baseURL, timeout) {
     this.instance = axios.create({

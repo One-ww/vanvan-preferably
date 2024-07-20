@@ -2,12 +2,15 @@ import React, { memo } from 'react'
 import { useRoutes } from 'react-router-dom'
 import routes from './router'
 
+import AppHerder from './components/app-header'
+import AppFooter from './components/app-footer'
+
 const App = memo(() => {
   return (
     <div className="App">
-      <div className="header">header</div>
+      <AppHerder />
       <div className="page">{useRoutes(routes)}</div>
-      <div className="footer">footer</div>
+      <AppFooter />
     </div>
   )
 })
