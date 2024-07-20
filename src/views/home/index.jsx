@@ -1,7 +1,27 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from 'react'
+
+import vanRquest from '@/services'
 
 const Home = memo(() => {
-  return <div>Home</div>;
-});
+  const [highCcore, setHighCcore] = useState({})
 
-export default Home;
+  useEffect(() => {
+    vanRquest.get({ url: '/home/highscore' }).then(res => {
+      console.log(res)
+      setHighCcore(res)
+    })
+  }, [])
+  return (
+    <div>
+      <div>{highCcore.title}</div>
+      <div>{highCcore.subtitle}</div>
+      <ul>
+        {highCcore?.list?.map(item => {
+          return <li key={item.id}>{item.name}</li>
+        })}
+      </ul>
+    </div>
+  )
+})
+
+export default Home
