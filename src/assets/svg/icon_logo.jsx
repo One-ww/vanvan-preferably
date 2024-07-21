@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
 
-const Logo = memo(() => {
+const IconLogo = memo(() => {
   return (
     <svg
       t="1721495944716"
-      class="icon"
+      className="icon"
       viewBox="0 0 1024 1024"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -26,4 +26,4 @@ const Logo = memo(() => {
   )
 })
 
-export default Logo
+export default IconLogo

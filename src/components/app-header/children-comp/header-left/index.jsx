@@ -1,13 +1,13 @@
 import React, { memo } from 'react'
 
 import { LeftWrapper } from './style'
-import Logo from '@/assets/svg/Logo'
+import IconLogo from '@/assets/svg/icon_logo'
 
 const HeaderLeft = memo(() => {
   return (
     <LeftWrapper>
-      <div className='logo'>
-        <Logo />
+      <div className="logo">
+        <IconLogo />
         <span className="title">万万城租</span>
       </div>
     </LeftWrapper>
