@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import 'antd/dist/antd.min.css'
 
 import { ThemeProvider } from 'styled-components'
 
