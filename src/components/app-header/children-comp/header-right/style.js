@@ -44,6 +44,7 @@ export const RightWrapper = styled.div`
     ${props => props.theme.mixin.boxShadow}
 
     .panel {
+      z-index: 1000;
       position: absolute;
       top: 54px;
       right: 0;
