@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const LeftWrapper = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-start;
-  color: ${(props) => props.theme.color.primaryColor};
+  color: ${props => props.theme.color.primaryColor};
 
   .logo {
     display: flex;
@@ -17,4 +17,4 @@ export const LeftWrapper = styled.div`
     margin-left: 3px;
     padding-top: 3px;
   }
-`;
+`

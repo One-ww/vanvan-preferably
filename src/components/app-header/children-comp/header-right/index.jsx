@@ -1,31 +1,31 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from 'react'
 
-import { RightWrapper } from "./style";
-import IconGlobal from "@/assets/svg/icon-global";
-import IconProfileAvatar from "@/assets/svg/icon-profile-avatar";
-import IconProfileMenu from "@/assets/svg/icon-profile-menu";
+import { RightWrapper } from './style'
+import IconGlobal from '@/assets/svg/icon-global'
+import IconProfileAvatar from '@/assets/svg/icon-profile-avatar'
+import IconProfileMenu from '@/assets/svg/icon-profile-menu'
 
 const HeaderRight = memo(() => {
   // 控制更多按钮弹窗显示
-  const [showPanel, setShowPanel] = useState(false);
+  const [showPanel, setShowPanel] = useState(false)
 
   useEffect(() => {
     // 点击事件处理函数
     function windowHandleClick() {
-      setShowPanel(false);
+      setShowPanel(false)
     }
     // 监听window全局的点击事件
-    window.addEventListener("click", windowHandleClick, true);
+    window.addEventListener('click', windowHandleClick, true)
     // 消除副作用
     return () => {
-      window.removeEventListener("click", windowHandleClick, true);
-    };
-  }, []);
+      window.removeEventListener('click', windowHandleClick, true)
+    }
+  }, [])
 
   // 显示更多
   const profileClickHandle = () => {
-    setShowPanel(true);
-  };
+    setShowPanel(true)
+  }
 
   return (
     <RightWrapper>
@@ -43,7 +43,7 @@ const HeaderRight = memo(() => {
 
         {showPanel && (
           <div className="panel">
-            <div className="top">
+            <div className="tops">
               <div className="item register">注册</div>
               <div className="item login">登录</div>
             </div>
@@ -56,7 +56,7 @@ const HeaderRight = memo(() => {
         )}
       </div>
     </RightWrapper>
-  );
-});
+  )
+})
 
-export default HeaderRight;
+export default HeaderRight

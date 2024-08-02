@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderWrapper = styled.div`
   border-bottom: 1px solid #eee;
@@ -18,6 +18,7 @@ export const HeaderWrapper = styled.div`
       display: flex;
       align-items: center;
       height: 80px;
+      padding: 0px 25px;
     }
   }
 
@@ -30,9 +31,9 @@ export const HeaderWrapper = styled.div`
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.3);
   }
-`;
+`
 
 export const SearchAreaWrapper = styled.div`
   transition: height 250ms ease;
-  height: ${(props) => (props.issearch ? "100px" : "0")};
-`;
+  height: ${props => (props.issearch ? '100px' : '0')};
+`
