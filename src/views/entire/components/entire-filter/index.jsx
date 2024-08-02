@@ -1,20 +1,21 @@
-import React, { memo, useState } from "react";
-import classNames from "classnames";
+import React, { memo, useState } from 'react'
+import classNames from 'classnames'
 
-import { EntireFilterWrapper } from "./style";
-import filterData from "@/assets/data/filter_data.json";
+import { EntireFilterWrapper } from './style'
+import filterData from '@/assets/data/filter_data.json'
 
 const EntireFilter = memo(() => {
-  const [selectItems, setSelectItems] = useState([]);
+  const [selectItems, setSelectItems] = useState([])
+
   function itemClickHandle(item) {
-    const newItems = [...selectItems];
+    const newItems = [...selectItems]
     if (newItems.includes(item)) {
-      const itemIndex = newItems.findIndex((filterItem) => filterItem === item);
-      newItems.splice(itemIndex, 1);
+      const itemIndex = newItems.findIndex(filterItem => filterItem === item)
+      newItems.splice(itemIndex, 1)
     } else {
-      newItems.push(item);
+      newItems.push(item)
     }
-    setSelectItems(newItems);
+    setSelectItems(newItems)
   }
   return (
     <EntireFilterWrapper>
@@ -22,21 +23,21 @@ const EntireFilter = memo(() => {
         {filterData.map((item, index) => {
           return (
             <div
-              className={classNames("item", {
-                active: selectItems.includes(item),
+              className={classNames('item', {
+                active: selectItems.includes(item)
               })}
               key={item}
-              onClick={(e) => {
-                itemClickHandle(item, index);
+              onClick={e => {
+                itemClickHandle(item, index)
               }}
             >
               {item}
             </div>
-          );
+          )
         })}
       </div>
     </EntireFilterWrapper>
-  );
-});
+  )
+})
 
-export default EntireFilter;
+export default EntireFilter

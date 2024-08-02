@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const EntireRoomsWrapper = styled.div`
   position: relative;
-  padding: 30px 20px;
+  padding: 40px 20px;
   margin-top: 128px;
   .title {
     font-size: 22px;
@@ -23,4 +23,4 @@ export const EntireRoomsWrapper = styled.div`
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.8);
   }
-`;
+`
