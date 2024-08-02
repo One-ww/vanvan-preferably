@@ -1,17 +1,16 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const RightWrapper = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: ${props => props.theme.color.textColor};
+  color: ${(props) => props.theme.color.textColor};
   font-weight: 600;
 
   .btns {
     display: flex;
     align-items: center;
-    box-sizing: content-box;
 
     .btn {
       height: 18px;
@@ -38,13 +37,12 @@ export const RightWrapper = styled.div`
     border: 1px solid #ccc;
     border-radius: 25px;
     background-color: #fff;
-    color: ${props => props.theme.text.primaryColor};
+    color: ${(props) => props.theme.text.primaryColor};
     cursor: pointer;
 
-    ${props => props.theme.mixin.boxShadow}
+    ${(props) => props.theme.mixin.boxShadow}
 
     .panel {
-      z-index: 1000;
       position: absolute;
       top: 54px;
       right: 0;
@@ -74,4 +72,4 @@ export const RightWrapper = styled.div`
       }
     }
   }
-`
+`;

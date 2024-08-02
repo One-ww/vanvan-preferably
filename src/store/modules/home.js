@@ -63,12 +63,6 @@ const homeSlice = createSlice({
       state.plusInfo = payload;
     },
   },
-  extraReducers: {
-    // [fetchHomeDataAction.fulfilled](state, { payload }) {
-    //   console.log(payload);
-    //   state.goodPriceInfo = payload;
-    // },
-  },
 });
 
 export const {

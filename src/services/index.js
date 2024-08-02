@@ -1,3 +1,5 @@
-import vanRquest from './request/index'
+import vanRquest from "./request/index";
 
-export default vanRquest
+export default vanRquest;
+
+export * from "./modules/home";
