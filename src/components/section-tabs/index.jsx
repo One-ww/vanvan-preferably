@@ -1,17 +1,17 @@
-import React, { memo, useState } from "react";
-import classNames from "classnames";
-import PropTypes from "prop-types";
+import React, { memo, useState } from 'react'
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
-import ScrollView from "@/base-ui/scroll-view";
-import { TabsWrapper } from "./style";
+import ScrollView from '@/base-ui/scroll-view'
+import { TabsWrapper } from './style'
 
-const SectionTabs = memo((props) => {
-  const { tabNames = [], tabClick } = props;
-  const [currentIndex, setCurrentIndex] = useState(0);
+const SectionTabs = memo(props => {
+  const { tabNames = [], tabClick } = props
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  function itemClickHandle(index, item) {
-    setCurrentIndex(index);
-    tabClick(index, item);
+  function itemClickHandle(item, index) {
+    setCurrentIndex(index)
+    tabClick(item, index)
   }
 
   return (
@@ -21,20 +21,20 @@ const SectionTabs = memo((props) => {
           return (
             <div
               key={index}
-              className={classNames("item", { active: index === currentIndex })}
-              onClick={(e) => itemClickHandle(index, item)}
+              className={classNames('item', { active: index === currentIndex })}
+              onClick={e => itemClickHandle(item, index)}
             >
               {item}
             </div>
-          );
+          )
         })}
       </ScrollView>
     </TabsWrapper>
-  );
-});
+  )
+})
 
 SectionTabs.propTypes = {
-  tabNames: PropTypes.array,
-};
+  tabNames: PropTypes.array
+}
 
-export default SectionTabs;
+export default SectionTabs

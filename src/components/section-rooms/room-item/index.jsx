@@ -12,7 +12,6 @@ import IconFavor from '@/assets/svg/icon-favor'
 
 const RoomItem = memo(props => {
   const { itemData, itemWidth = '25%', itemClick } = props
-
   const [selectIndex, setSelectIndex] = useState(0)
   const swiperRef = useRef()
 
@@ -75,7 +74,7 @@ const RoomItem = memo(props => {
   return (
     <ItemWrapper
       verifyColor={itemData?.verify_info?.text_color || '#39576a'}
-      itemWidth={itemWidth}
+      itemwidth={itemWidth}
       onClick={itemClickHandle}
     >
       <div className="inner">
