@@ -1,45 +1,45 @@
-import PropTypes from "prop-types";
-import React, { memo, useEffect, useState } from "react";
-import { CSSTransition, SwitchTransition } from "react-transition-group";
+import PropTypes from 'prop-types'
+import React, { memo, useEffect, useState } from 'react'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
+import classNames from 'classnames'
 
-import { BrowserWrapper } from "./style";
-import IconClose from "@/assets/svg/icon-close";
-import IconArrowLeft from "@/assets/svg/icon-arrow-left";
-import IconArrowRight from "@/assets/svg/icon-arrow-right";
-import IconTriangleArrowBottom from "@/assets/svg/icon-triangle-arrow-bottom";
-import Indicator from "../indicator";
-import classNames from "classnames";
-import IconTriangleArrowTop from "@/assets/svg/icon-triangle-arrow-top";
+import { BrowserWrapper } from './style'
+import IconClose from '@/assets/svg/icon-close'
+import IconArrowLeft from '@/assets/svg/icon-arrow-left'
+import IconArrowRight from '@/assets/svg/icon-arrow-right'
+import IconTriangleArrowBottom from '@/assets/svg/icon-triangle-arrow-bottom'
+import IconTriangleArrowTop from '@/assets/svg/icon-triangle-arrow-top'
+import Indicator from '../indicator'
 
-const PictureBrowser = memo((props) => {
-  const { pictureUrls, closeClick } = props;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isNext, setIsNext] = useState(true);
-  const [showList, setShowList] = useState(true);
+const PictureBrowser = memo(props => {
+  const { pictureUrls, closeClick } = props
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isNext, setIsNext] = useState(true)
+  const [showList, setShowList] = useState(true)
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden'
 
     return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
 
   function closeBtnClickHandle() {
-    if (closeClick) closeClick();
+    if (closeClick) closeClick()
   }
 
   function controlClickHandle(isNext = true) {
-    let newIndex = isNext ? currentIndex + 1 : currentIndex - 1;
-    if (newIndex < 0) newIndex = pictureUrls.length - 1;
-    if (newIndex > pictureUrls.length - 1) newIndex = 0;
-    setCurrentIndex(newIndex);
-    setIsNext(isNext);
+    let newIndex = isNext ? currentIndex + 1 : currentIndex - 1
+    if (newIndex < 0) newIndex = pictureUrls.length - 1
+    if (newIndex > pictureUrls.length - 1) newIndex = 0
+    setCurrentIndex(newIndex)
+    setIsNext(isNext)
   }
 
   function handleBottomClick(index) {
-    setIsNext(index > currentIndex);
-    setCurrentIndex(index);
+    setIsNext(index > currentIndex)
+    setCurrentIndex(index)
   }
 
   return (
@@ -51,20 +51,16 @@ const PictureBrowser = memo((props) => {
       </div>
       <div className="slider">
         <div className="control">
-          <div className="btn left" onClick={(e) => controlClickHandle(false)}>
+          <div className="btn left" onClick={e => controlClickHandle(false)}>
             <IconArrowLeft width="77" height="77" />
           </div>
-          <div className="btn right" onClick={(e) => controlClickHandle(true)}>
+          <div className="btn right" onClick={e => controlClickHandle(true)}>
             <IconArrowRight width="77" height="77" />
           </div>
         </div>
         <div className="picture">
           <SwitchTransition mode="in-out">
-            <CSSTransition
-              key={pictureUrls[currentIndex]}
-              classNames="pic"
-              timeout={200}
-            >
+            <CSSTransition key={pictureUrls[currentIndex]} classNames="pic" timeout={200}>
               <img src={pictureUrls[currentIndex]} alt="" />
             </CSSTransition>
           </SwitchTransition>
@@ -79,13 +75,9 @@ const PictureBrowser = memo((props) => {
               </span>
               <span>room Apartment图片{currentIndex + 1}</span>
             </div>
-            <div className="toggle" onClick={(e) => setShowList(!showList)}>
-              <span>{showList ? "隐藏" : "显示"}照片列表</span>
-              {showList ? (
-                <IconTriangleArrowBottom />
-              ) : (
-                <IconTriangleArrowTop />
-              )}
+            <div className="toggle" onClick={e => setShowList(!showList)}>
+              <span>{showList ? '隐藏' : '显示'}照片列表</span>
+              {showList ? <IconTriangleArrowBottom /> : <IconTriangleArrowTop />}
             </div>
           </div>
           <div className="list">
@@ -93,26 +85,26 @@ const PictureBrowser = memo((props) => {
               {pictureUrls.map((item, index) => {
                 return (
                   <div
-                    className={classNames("item", {
-                      active: currentIndex === index,
+                    className={classNames('item', {
+                      active: currentIndex === index
                     })}
                     key={item}
-                    onClick={(e) => handleBottomClick(index)}
+                    onClick={e => handleBottomClick(index)}
                   >
                     <img src={item} alt="" />
                   </div>
-                );
+                )
               })}
             </Indicator>
           </div>
         </div>
       </div>
     </BrowserWrapper>
-  );
-});
+  )
+})
 
 PictureBrowser.propTypes = {
-  pictureUrls: PropTypes.array,
-};
+  pictureUrls: PropTypes.array
+}
 
-export default PictureBrowser;
+export default PictureBrowser

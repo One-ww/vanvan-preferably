@@ -1,25 +1,25 @@
-import PropTypes from "prop-types";
-import React, { memo, useEffect, useRef } from "react";
-import { IndicatorWrapper } from "./style";
+import PropTypes from 'prop-types'
+import React, { memo, useEffect, useRef } from 'react'
+import { IndicatorWrapper } from './style'
 
-const Indicator = memo((props) => {
-  const { selectIndex = 0 } = props;
-  const contentRef = useRef();
+const Indicator = memo(props => {
+  const { selectIndex = 0 } = props
+  const contentRef = useRef()
 
   useEffect(() => {
-    const selectEl = contentRef.current.children[selectIndex];
-    const itemLeft = selectEl.offsetLeft;
-    const itemWidth = selectEl.clientWidth;
+    const selectEl = contentRef.current.children[selectIndex]
+    const itemLeft = selectEl.offsetLeft
+    const itemWidth = selectEl.clientWidth
 
-    const contentWidth = contentRef.current.clientWidth;
-    const contentScroll = contentRef.current.scrollWidth;
+    const contentWidth = contentRef.current.clientWidth
+    const contentScroll = contentRef.current.scrollWidth
 
-    let distance = itemLeft + itemWidth * 0.5 - contentWidth * 0.5;
-    if (distance < 0) distance = 0;
-    const totalDistance = contentScroll - contentWidth;
-    if (distance > totalDistance) distance = totalDistance;
-    contentRef.current.style.transform = `translate(${-distance}px)`;
-  }, [selectIndex]);
+    let distance = itemLeft + itemWidth * 0.5 - contentWidth * 0.5
+    if (distance < 0) distance = 0
+    const totalDistance = contentScroll - contentWidth
+    if (distance > totalDistance) distance = totalDistance
+    contentRef.current.style.transform = `translate(${-distance}px)`
+  }, [selectIndex])
 
   return (
     <IndicatorWrapper>
@@ -27,11 +27,11 @@ const Indicator = memo((props) => {
         {props.children}
       </div>
     </IndicatorWrapper>
-  );
-});
+  )
+})
 
 Indicator.propTypes = {
-  selectIndex: PropTypes.number,
-};
+  selectIndex: PropTypes.number
+}
 
-export default Indicator;
+export default Indicator
