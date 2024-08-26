@@ -1,4 +1,4 @@
-## 项目演示：https://flash-vanvan-preferably.vercel.app/#/home
+## 项目演示：https://flash-vanvan-preferably.vercel.app
 
 # Getting Started with Create React App
 
